@@ -1,0 +1,128 @@
+body{
+    margin: 0px;
+}
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fullWebPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: #031652;
+    color: white;
+}
+
+.innerContainer{
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    background-color: rgb(28, 73, 100);
+    box-shadow: 2px 4px 2px 2px rgb(9, 3, 63);
+}
+
+.heading{
+    color: orangered;
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.generatingPart{
+    /* margin: auto; */
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: fit-content;
+    margin: auto;
+    background-color: rgb(240, 241, 237);
+}
+
+#generatedPasswordField{
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: none;
+}
+
+.copyButton{
+    padding: 10px 15px;
+    border: none;
+    border: 1px solid rgb(134, 134, 134);
+    border-radius: 15px;
+    background-color: orange;
+}
+
+.copyButton:hover{
+    background-color: orange;
+}
+
+.copyAlert{
+    color: red;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.copyAlertSwitch{
+    display: none;
+}
+
+
+.additionalInformation{
+    /* justify-content: space-around; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.passwordLength{
+    margin-bottom: 10px;
+}
+
+.includeNumbers{
+    margin-bottom: 10px;
+}
+
+
+.alert{
+    color: red;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.alertSwitch{
+    display: none;
+}
+
+.copyMessage{
+    color: green;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.copyMessageSwitch{
+    display: none;
+}
+
+
+#passwordLengthField{
+    width: 75px;
+}
+
+.text{
+    display: inline-block;
+    margin-left: 5px;
+}
+
+
+
+.generateButton{
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 15px;
+    border: 1px solid gray;
+    background-color: orange;
+}

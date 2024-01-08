@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="fullWebPage">
+        <div class="innerContainer">
+            <div class="topSection">
+                <h1 class="heading">
+                    Password Generator
+                </h1>
+            </div>
+
+            <div class="middleSection">
+                <div class="generatingPart">
+                    <input type="text" name="generatedPassword" disabled id="generatedPasswordField" placeholder="Generated Password">
+                    <button class="copyButton" onclick="copyPassword()">Copy</button>
+                </div>
+                <div id="copyMessage" class="copyMessage copyMessageSwitch">
+                    Password is Copied.
+                </div>
+                <div id="copyAlertMessage" class="copyAlert copyAlertSwitch">
+                    Please Generate Password.
+                </div>
+                <div class="additionalInformation">
+                    <!-- <div class="passwordLength">
+                        <input type="number" name="passwordLength" id="passwordLengthField" placeholder="Ex: 8" min=6 max=20>
+                        <div class="text">Length</div>
+                    </div>
+                    <div class="alert alertSwitch" id="alert">Value Should be between 6-20.</div> -->
+                    <div class="includeNumbers">
+                        <input type="checkbox" name="includeNumber" id="includeNumberBox">
+                        <div class="text">Numbers</div>
+                    </div>
+                    <div class="includeSpecialCharacters">
+                        <input type="checkbox" name="includeSpecialCharacters" id="includeSpecialCharactersBox">
+                        <div class="text">Special Character</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bottomSection">
+                <div class="generatePassword">
+                    <button class="generateButton" onclick="generatePassword()">Generate Password</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    function generatePassword(){
+    let containLetters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let numberChecked = document.querySelector('#includeNumberBox').checked;
+    let specialCharacterChacked = document.querySelector('#includeSpecialCharactersBox').checked;
+
+    if (numberChecked){
+        containLetters += '0123456789';
+    }
+
+    if (specialCharacterChacked){
+        containLetters += '~!@#$%^&*()_=><?*-+/';
+    }
+
+    let password = '';
+
+    for (let index=0 ; index<12 ; index++){
+        const character = containLetters[Math.floor(Math.random() * containLetters.length)];
+        password += character;
+    }
+
+    document.querySelector('#generatedPasswordField').setAttribute('value',`${password}`)
+    }
+
+
+    // document.querySelector('#generatedPasswordField').addEventListener("click",copyPassword);
+
+    function copyPassword(){
+        let copyData = document.querySelector('#generatedPasswordField');
+        // copyData.select();
+
+        if(!copyData.value){
+            let copyAlert = document.querySelector('#copyAlertMessage');
+            copyAlert.classList.remove('copyAlertSwitch');
+            setTimeout(() => {
+                copyAlert.classList.add('copyAlertSwitch');
+            }, 3000);
+        }else{
+            navigator.clipboard.writeText(copyData.value);
+            let confirmText = document.querySelector('#copyMessage');
+            confirmText.classList.remove('copyMessageSwitch');
+            setTimeout(() => {
+                confirmText.classList.add('copyMessageSwitch');
+            }, 3000);
+        }
+
+    }
+</script>
+</html>
