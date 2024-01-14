@@ -1,4 +1,3 @@
-
 function generatePassword(){
     let containLetters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let numberChecked = document.querySelector('#includeNumberBox').checked;
@@ -15,12 +14,33 @@ function generatePassword(){
     let password = '';
 
     for (let index=0 ; index<12 ; index++){
-        const character = containLetters[Math.round(Math.random() * 12)];
+        const character = containLetters[Math.floor(Math.random() * containLetters.length)];
         password += character;
     }
 
     document.querySelector('#generatedPasswordField').setAttribute('value',`${password}`)
+    }
 
 
-}
+    // document.querySelector('#generatedPasswordField').addEventListener("click",copyPassword);
 
+    function copyPassword(){
+        let copyData = document.querySelector('#generatedPasswordField');
+        // copyData.select();
+
+        if(!copyData.value){
+            let copyAlert = document.querySelector('#copyAlertMessage');
+            copyAlert.classList.remove('copyAlertSwitch');
+            setTimeout(() => {
+                copyAlert.classList.add('copyAlertSwitch');
+            }, 3000);
+        }else{
+            navigator.clipboard.writeText(copyData.value);
+            let confirmText = document.querySelector('#copyMessage');
+            confirmText.classList.remove('copyMessageSwitch');
+            setTimeout(() => {
+                confirmText.classList.add('copyMessageSwitch');
+            }, 3000);
+        }
+
+    }

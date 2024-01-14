@@ -11,7 +11,7 @@ function onClickFunction(value){
       case '=':
         let inputFieldText2 = document.querySelector('#inputField').value;
         let evaluated = eval(inputFieldText2);
-        if (!Number.isInteger(evaluated)){
+        if (evaluated % 1 === 0 ){
             document.querySelector('#inputField').value = eval(inputFieldText2);
         }else{
             document.querySelector('#inputField').value = eval(inputFieldText2).toFixed(2);

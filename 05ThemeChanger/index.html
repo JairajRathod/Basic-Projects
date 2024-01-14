@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="container">
+    <h1>Theme Changer</h1>
+    <div class="buttons">
+      <button id="theme">Theme</button>
+    </div>
+  </div>
+</body>
+<script>
+    document.querySelector('#theme').addEventListener('click',() => {
+      document.querySelector('body').classList.toggle('dark-mode');
+      document.querySelector('#container').classList.toggle('container-dark')
+    })
+</script>
+</html>
