@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        *{
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            background-color: rgb(1, 2, 41);
+            color: white;
+        }
+        .container{
+            width: 400px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgb(48, 47, 47);
+        }
+        .headContainer p{
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .top{
+            color: white;
+            margin-bottom: 5px;
+        }
+        .bottom{
+            color: yellow;
+        }
+        .mainContainer{
+            padding: 20px 0px;
+        }
+        .inputContainer{
+            background-color: rgba(186, 186, 188, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #dateInputField{
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            width: 200px;
+        }
+        .calculateButton{
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="headContainer">
+            <p class="top">JavaScript </p>
+            <p class="bottom">Age Calculator</p>
+        </div>
+        <div class="mainContainer">
+            <div class="inputContainer">
+                <input type="date" id="dateInputField">
+                <button class="calculateButton">Calculate</button>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="ageDetailText">Your Age would be something.</p>
+        </div>
+    </div>
+</body>
+<script>
+    const inputAge = document.querySelector('#dateInputField');
+    const calculateButton = document.querySelector('.calculateButton');
+    const ageDetailText = document.querySelector('.ageDetailText');
+    const currentDate = new Date();
+    const birthDate = new Date(inputAge.value);
+
+    calculateButton.addEventListener('click', (event) => {
+        let exectDate, exectMonth ,exectYear ;
+        const cDate = currentDate.getDate();
+        const cMonth = currentDate.getMonth();
+        const cYear = currentDate.getFullYear();
+        const bDate = birthDate.getDate();
+        const bMonth = birthDate.getMonth();
+        const bYear = birthDate.getFullYear();
+        
+        exectYear = cYear - bYear;
+        if(currentDate.getMonth() >= birthDate.getMonth()){
+            exectMonth =  currentDate.getMonth() - birthDate.getMonth()
+        }else{
+            exectYear--;
+            exectMonth = 12 + currentDate.getMonth() - birthDate.getMonth()
+        }
+
+        if(currentDate.getDate() >= birthDate.getDate()){
+            exectDate = currentDate.getDate() - birthDate.getDate();
+        }else{
+            exectMonth--;
+            exectDate = getDatesInMonth(birthDate.getFullYear(), birthDate.getMonth()) 
+        }
+
+
+    })
+
+</script>
+</html>

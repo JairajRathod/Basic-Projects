@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <style>
+        *{
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body{
+            background-color: rgb(1, 1, 36);
+            color: gray;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+        .container{
+            background-color: rgba(27, 7, 255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+        }
+        .watchTime{
+            opacity: 1.0;
+            padding: 10px;
+            font-size: 40px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+        }
+        .footer{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        button{
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            background-color: gray;
+            font-weight: bold;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="watchTime">
+            00:00:00
+        </div>
+        <div class="footer">
+            <button class="pause">Pause</button>
+            <button class="start">Start</button>
+            <button class="restart">Restart</button>
+        </div>
+    </div>
+</body>
+<script>
+    const watchTime = document.querySelector('.watchTime');
+    const pauseButton = document.querySelector('.pause');
+    const startButton = document.querySelector('.start');
+    const restartButton = document.querySelector('.restart');
+
+    let houre = 0, minute = 0, second = 0;
+    let start = null;
+
+    
+
+    function stopWatch(){
+        second++;
+        if(second === 60){
+            second = 0;
+            minute++;
+        }else if(minute === 60){
+            minute = 0;
+            houre++;
+        }
+
+        let hourev = houre < 10 ? '0'+houre : houre;
+        let minutev = minute < 10 ? '0'+minute : minute;
+        let secondv = second < 10 ? '0'+second : second;
+
+        watchTime.innerHTML = `${hourev}:${minutev}:${secondv}`;
+    }
+
+    startButton.addEventListener('click', () => {
+        start = setInterval(stopWatch, 1000);
+    })
+
+    pauseButton.addEventListener('click', () => {
+        clearInterval(start);
+    })
+
+    restartButton.addEventListener('click', () => {
+        houre = 0;
+        minute = 0;
+        second = 0;
+        clearInterval(start);
+        watchTime.innerHTML = `0${houre}:0${minute}:0${second}`;
+    })
+
+
+
+
+
+</script>
+</html>
