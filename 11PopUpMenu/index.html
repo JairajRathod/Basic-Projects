@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="btnContainer">
+            <button class="submitButton" onclick="openPopup()">Submit</button>
+        </div>
+        <div class="popupMenu">
+            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, atque.</p>
+            <button class="okButton" onclick="closePopup()">Ok</button>
+        </div>
+    </div>
+</body>
+<script>
+    const popupMenu = document.querySelector('.popupMenu');
+
+    function openPopup() {
+        popupMenu.classList.add('openPopup');
+    }
+    function closePopup() {
+        popupMenu.classList.remove('openPopup');
+    }
+
+</script>
+</html>
