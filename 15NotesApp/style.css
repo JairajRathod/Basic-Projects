@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0, 0, 60);
+    display: flex;
+    justify-content: center;
+}
+
+/* container where all things are placed  */
+.container{
+    padding: 3%;
+    width: fit-content;
+}
+
+/* heading which present in the head of container */
+.heading{
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: yellow;
+}
+
+/* this is a button which adds notes in .notesListContainer */
+.addNotes{
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+    background-color: orangered;
+    font-weight: bold;
+    color: white;
+}
+
+/* this is a container where all notes are present */
+.notesListContainer{
+    margin-top: 40px;
+    width: fit-content;
+}
+
+/* This is a container which is a note which containes .noteItem and .deleteButton */
+.noteContainer{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: end;
+}
+
+/* this is a paragraph in which we can write anything which we want to note */
+.noteItem{
+    border: 1px solid gray;
+    width: 500px;
+    height: 150px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+/* this is delete button which is used to delete notes in .notesListContainer */
+.deleteButton{
+    width: fit-content;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: gray;
+    font-weight: bold;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
